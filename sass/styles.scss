@@ -1,0 +1,111 @@
+$background-color: blue;
+$amount-darker: 0%;
+$qt: 5%;
+$height: 300px;
+$margin-bottom: 10px;
+$tablet-size: 481px;
+$desktop-size: 768px;
+
+@for $i from 1 through 8 {
+	$amount-darker: $amount-darker + $qt;
+	@if $i == 4 {
+		.f#{$i}	{
+			height: 75px;
+			margin-bottom: $margin-bottom;
+			padding-right: 150px;
+			position: relative;
+		}
+		.f#{$i} input[type="text"]{
+			background-color: darken(red, $amount-darker);
+			box-sizing: border-box;
+			display: block;
+			height: 100%;
+			width: 100%;
+		}
+		.f#{$i} input[type="button"]{
+			background-color: darken(red, $amount-darker+$qt);
+			float: right;
+			height: 100%;
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 150px;
+		}
+	}@else{
+		.f#{$i}{
+			background-color: darken($background-color, $amount-darker);
+		}
+	}
+}
+.clear{
+	clear: both;
+}
+.franja{
+	height: $height;
+	margin-bottom: $margin-bottom;
+}
+@media screen and (min-width: $tablet-size) {
+	@for $i from 1 through 3 {
+		@if $i == 1 {
+			.first-col{
+				box-sizing:border-box;
+				float: left;
+				padding-right: 5px;
+				width: 50%;
+			}
+		} @else if $i == 2{
+			.second-col{
+				box-sizing:border-box;
+				float: left;
+				padding-left: 5px;
+				width: 50%;
+			}
+		} @else {
+			.third-col{
+				box-sizing:border-box;
+				clear: both;
+			}
+		}
+	}	
+}
+@media screen and (min-width:$desktop-size){
+	@for $i from 1 through 8 {
+		@if $i == 1 {
+			.first-col1{
+				box-sizing: border-box;
+				float: left;
+				padding-right: 5px;
+				width: 50%;
+			}
+			.first-col{
+				width: 33.33%;
+			}
+		} @else if $i == 2{
+			.second-col{
+				width: 33.33%;
+			}
+			.second-col1{
+				box-sizing: border-box;
+				float: left;
+				padding-left: 5px;
+				width: 50%;
+			}
+		} @else if $i ==3{
+			.third-col{
+				clear:none;
+				float: left;
+				padding-left: 5px;
+				width: 33.34%;
+			}
+		} @else if $i==4{
+			.f#{$i}	{
+				clear: both;
+			}
+		} @else if $i ==8 {
+			.f#{$i}	{
+				clear: both;
+			}
+		}
+	}
+}
+

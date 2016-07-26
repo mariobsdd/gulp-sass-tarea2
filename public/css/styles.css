@@ -1,0 +1,89 @@
+.f1 {
+  background-color: #0000e6; }
+
+.f2 {
+  background-color: #0000cc; }
+
+.f3 {
+  background-color: #0000b3; }
+
+.f4 {
+  height: 75px;
+  margin-bottom: 10px;
+  padding-right: 150px;
+  position: relative; }
+
+.f4 input[type="text"] {
+  background-color: #990000;
+  box-sizing: border-box;
+  display: block;
+  height: 100%;
+  width: 100%; }
+
+.f4 input[type="button"] {
+  background-color: maroon;
+  float: right;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 150px; }
+
+.f5 {
+  background-color: navy; }
+
+.f6 {
+  background-color: #000066; }
+
+.f7 {
+  background-color: #00004d; }
+
+.f8 {
+  background-color: #000033; }
+
+.clear {
+  clear: both; }
+
+.franja {
+  height: 300px;
+  margin-bottom: 10px; }
+
+@media screen and (min-width: 481px) {
+  .first-col {
+    box-sizing: border-box;
+    float: left;
+    padding-right: 5px;
+    width: 50%; }
+  .second-col {
+    box-sizing: border-box;
+    float: left;
+    padding-left: 5px;
+    width: 50%; }
+  .third-col {
+    box-sizing: border-box;
+    clear: both; } }
+
+@media screen and (min-width: 768px) {
+  .first-col1 {
+    box-sizing: border-box;
+    float: left;
+    padding-right: 5px;
+    width: 50%; }
+  .first-col {
+    width: 33.33%; }
+  .second-col {
+    width: 33.33%; }
+  .second-col1 {
+    box-sizing: border-box;
+    float: left;
+    padding-left: 5px;
+    width: 50%; }
+  .third-col {
+    clear: none;
+    float: left;
+    padding-left: 5px;
+    width: 33.34%; }
+  .f4 {
+    clear: both; }
+  .f8 {
+    clear: both; } }
