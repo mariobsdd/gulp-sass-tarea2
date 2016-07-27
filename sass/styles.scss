@@ -6,6 +6,46 @@ $margin-bottom: 10px;
 $tablet-size: 481px;
 $desktop-size: 768px;
 
+@mixin cols($bool,$width-col){
+	@if $bool == 1{
+		.first-col,
+		.second-col{
+			box-sizing: border-box;
+			float: left;
+			width: $width-col;
+		}
+	}@else if ($bool ==0) {
+		.first-col1,
+		.second-col1{
+			box-sizing: border-box;
+			float: left;
+			width: $width-col;
+		}
+	}@else{
+		.first-col,
+		.second-col{
+			width: $width-col;
+		}	
+	}
+}
+
+@mixin inpt-txt($input-color) {
+    background-color: darken($input-color, $amount-darker);
+	box-sizing: border-box;
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+@mixin inpt-btn($button-color) {
+    background-color: darken($button-color, $amount-darker+$qt);
+	float: right;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 150px;
+}
+
 @for $i from 1 through 8 {
 	$amount-darker: $amount-darker + $qt;
 	@if $i == 4 {
@@ -16,20 +56,10 @@ $desktop-size: 768px;
 			position: relative;
 		}
 		.f#{$i} input[type="text"]{
-			background-color: darken(red, $amount-darker);
-			box-sizing: border-box;
-			display: block;
-			height: 100%;
-			width: 100%;
+			@include inpt-txt(red);
 		}
 		.f#{$i} input[type="button"]{
-			background-color: darken(red, $amount-darker+$qt);
-			float: right;
-			height: 100%;
-			position: absolute;
-			right: 0;
-			top: 0;
-			width: 150px;
+			@include inpt-btn(red);
 		}
 	}@else{
 		.f#{$i}{
@@ -45,67 +75,38 @@ $desktop-size: 768px;
 	margin-bottom: $margin-bottom;
 }
 @media screen and (min-width: $tablet-size) {
-	@for $i from 1 through 3 {
-		@if $i == 1 {
-			.first-col{
-				box-sizing:border-box;
-				float: left;
-				padding-right: 5px;
-				width: 50%;
-			}
-		} @else if $i == 2{
-			.second-col{
-				box-sizing:border-box;
-				float: left;
-				padding-left: 5px;
-				width: 50%;
-			}
-		} @else {
-			.third-col{
-				box-sizing:border-box;
-				clear: both;
-			}
-		}
-	}	
-}
-@media screen and (min-width:$desktop-size){
-	@for $i from 1 through 8 {
-		@if $i == 1 {
-			.first-col1{
-				box-sizing: border-box;
-				float: left;
-				padding-right: 5px;
-				width: 50%;
-			}
-			.first-col{
-				width: 33.33%;
-			}
-		} @else if $i == 2{
-			.second-col{
-				width: 33.33%;
-			}
-			.second-col1{
-				box-sizing: border-box;
-				float: left;
-				padding-left: 5px;
-				width: 50%;
-			}
-		} @else if $i ==3{
-			.third-col{
-				clear:none;
-				float: left;
-				padding-left: 5px;
-				width: 33.34%;
-			}
-		} @else if $i==4{
-			.f#{$i}	{
-				clear: both;
-			}
-		} @else if $i ==8 {
-			.f#{$i}	{
-				clear: both;
-			}
-		}
+	@include cols(1,50%);
+	.first-col{
+		padding-right: 5px;
+	}
+	.second-col{
+		padding-left: 5px;
+	}
+	.third-col{
+		box-sizing:border-box;
+		clear: both;
 	}
 }
-
+@media screen and (min-width:$desktop-size){
+	
+	@include cols(0,50%);
+	@include cols(2,33.33%);
+	.first-col1{
+		padding-right: 5px;
+	}
+	.second-col1{
+		padding-left: 5px;
+	}
+	.third-col{
+		clear:none;
+		float: left;
+		padding-left: 5px;
+		width: 33.34%;
+	}
+	.f4{
+		clear: both;
+	}
+	.f8{
+		clear: both;
+	}
+}
